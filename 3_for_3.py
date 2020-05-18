@@ -26,10 +26,10 @@ def main():
         book.append({'school_class': class_name, 'scores': scores})
   
   print(f'{book}\n')
-  sum_all = 0                                      #Считаю средний балл по школе
+  sum_all = 0                                      
   counter_all = 0
 
-  for b in range (len(book)):
+  for b in range (len(book)):                  #Считаю средние баллы
     counter_class = 0
     sum_class = 0
     for s in range (len(book[b]['scores'])):
