@@ -11,10 +11,16 @@
 """
 
 def ask_user():
-    """
-    Замените pass на ваш код
-    """
-    pass
+    while True:
+      try:
+        user_text = input ('Как дела?: ')
+        if user_text == 'Хорошо':
+          print ('ок. ясно. понятно.')
+          break
+      except(KeyboardInterrupt):
+        print ('\nПока!')
+        break
+
     
 if __name__ == "__main__":
     ask_user()
