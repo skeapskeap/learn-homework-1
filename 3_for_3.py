@@ -30,9 +30,9 @@ def main():
   counter_all = 0
 
   for b in range (len(book)):                  #Считаю средние баллы
-    counter_class = 0
     sum_class = 0
-    for s in range (len(book[b]['scores'])):
+    counter_class = 0
+      for s in range (len(book[b]['scores'])):
       sum_all += book[b]['scores'][s]
       sum_class += book[b]['scores'][s]
       counter_all += 1

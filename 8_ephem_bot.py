@@ -33,21 +33,28 @@ PROXY = {
 }
 
 
-def greet_user(update, bot):
-    text = 'Вызван /start'
+def greet_user(update, bot):                  #Функция, отвечающая на /start
+    text = 'Напишите /planet <planet_name>'
     print(text)
     update.message.reply_text(text)
 
 
-def talk_to_me(update, bot):
+def talk_to_me(update, bot):                  #Функция повторюшка
     user_text = update.message.text 
     print(user_text.split())
     update.message.reply_text(user_text)
 
 
-def planet(update, bot):
-    planet_name = update['message']['text'].split(' ')[1] # planet_name = 'Mars'
-    planet_loc = ephem.planet_name('2000/01/01')
+def planet(update, bot):                      #Функция возвращает созвездие
+    planet_name = update['message']['text'].split(' ')[1] # Вычленяю название планеты из update
+    if planet_name == 'Mars':                             
+        date = str(datetime.datetime.today())             # Сегодняшняя дата + время
+        date = date.split(' ')[0].replace('-','/')        # Убираю время и привожу к нужному виду
+        planet_loc = ephem.Mars(date)                     # Локация планеты в сегодняшний день
+        planet_const = ephem.constellation(planet_loc)    # Название созввездия исходя из локации
+        update.message.reply_text(f'{planet_name} сегодня в {planet_const}')      # Отвечаю в телеграм     
+    else:
+        update.message.reply_text('Попробуйте спросить про Марс')
     
 
 def main():
