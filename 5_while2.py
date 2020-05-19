@@ -15,11 +15,20 @@
     
 """
 
-def ask_user():
-    """
-    Замените pass на ваш код
-    """
-    pass
+def ask_user_dict():
+  text = {
+    'Хоп':'мусорок, не шей мне срок',
+    'Владимирский':'централ, ветер северный',
+    'Границы':'ключ переломлен пополам',
+    'Патимейкер' : 'Шейкер шейкер'
+  }
+  while True:
+    user_input = input ('#  ')
+    if user_input in text:
+      print (text[user_input])
+    elif user_input == 'exit':
+      break
+
     
 if __name__ == "__main__":
-    ask_user()
+    ask_user_dict()
