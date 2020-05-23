@@ -13,9 +13,9 @@
 * Вывести содержимое переменной на экран
 
 """
+age = int(input('Каков Ваш возраст?\n'))
 
-def main():
-   age = int(input('Каков Ваш возраст?\n'))
+def main(age):
   
    if age < 0 or age > 100:
      occupation = 'Вы врёте'
@@ -27,7 +27,9 @@ def main():
      occupation = 'В ВУЗе'
    else :
      occupation = 'Работает'
-   print (occupation)
+   return occupation
 
 if __name__ == "__main__":
-    main()
+    main(age)
+
+print (main(age))
